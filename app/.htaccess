@@ -1,0 +1,7 @@
+RewriteEngine on
+RewriteCond %{HTTP_USER_AGENT} !Windows\ NT.+Touch [NC]
+RewriteCond %{HTTP_USER_AGENT} Windows\ NT\ 6|Macintosh|Ubuntu|Linux\ (x86_64|i686)|CrOS [NC]
+RewriteCond %{QUERY_STRING} !no_redirect=true [NC]
+RewriteCond %{HTTP_REFERER} !^http://m\.sklad-shin\.by(/)?
+RewriteRule ^(.*)$ http://sklad-shin.by/$1 [L,R=302]
+ErrorDocument 404 /404.php
